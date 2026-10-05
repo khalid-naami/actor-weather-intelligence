@@ -1,0 +1,44 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "title": "Record Type"
+            },
+            "location": {
+                "type": "string",
+                "title": "Location Name"
+            },
+            "coordinates": {
+                "type": "object",
+                "title": "Coordinates (lat, lon)"
+            },
+            "current_weather": {
+                "type": "object",
+                "title": "Current Meteorology"
+            },
+            "air_quality": {
+                "type": "object",
+                "title": "Air Quality Metrics"
+            },
+            "marine_forecast": {
+                "type": "object",
+                "title": "Marine & Wave Forecast"
+            },
+            "solar_activity": {
+                "type": "object",
+                "title": "Space Weather Solar Activity"
+            },
+            "geomagnetic_k_index": {
+                "type": "object",
+                "title": "Geomagnetic Planetary K-Index"
+            },
+            "usgs_earthquakes": {
+                "type": "array",
+                "title": "USGS Earthquakes List"
+            }
+        }
+    }
+}
