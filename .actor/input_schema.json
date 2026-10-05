@@ -1,0 +1,53 @@
+{
+    "title": "Weather Intelligence Actor Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "locations": {
+            "title": "Target Locations / Cities",
+            "type": "array",
+            "description": "List of cities or locations to analyze (e.g. ['Casablanca', 'Tokyo', 'New York', 'Riyadh']).",
+            "prefill": ["Casablanca", "Paris", "Dubai", "Tokyo"],
+            "editor": "json"
+        },
+        "forecastDays": {
+            "title": "Forecast Days",
+            "type": "integer",
+            "description": "Number of forecast days (1 to 16).",
+            "default": 7,
+            "minimum": 1,
+            "maximum": 16
+        },
+        "includeAirQuality": {
+            "title": "Include Air Quality (AQI & Pollutants)",
+            "type": "boolean",
+            "description": "Fetch PM2.5, PM10, NO2, O3, and European AQI.",
+            "default": true
+        },
+        "includeMarineWeather": {
+            "title": "Include Marine / Wave Telemetry",
+            "type": "boolean",
+            "description": "Fetch significant wave height, swell period, and sea direction.",
+            "default": true
+        },
+        "includeSpaceWeather": {
+            "title": "Include Space Weather & Solar Activity",
+            "type": "boolean",
+            "description": "Fetch NOAA solar flare classification, radio blackout risk, and planetary geomagnetic Kp index.",
+            "default": true
+        },
+        "includeEarthquakes": {
+            "title": "Include Live USGS Seismic Activity",
+            "type": "boolean",
+            "description": "Fetch live earthquakes worldwide with magnitude and tectonic plate identification.",
+            "default": true
+        },
+        "apiKey": {
+            "title": "Apify API Token / Custom Key",
+            "type": "string",
+            "description": "Optional Apify API token or custom authentication key for MCP and programmatic triggers.",
+            "editor": "textfield"
+        }
+    },
+    "required": ["locations"]
+}
