@@ -1,0 +1,16 @@
+{
+    "actorSpecification": 1,
+    "name": "weather-intelligence-scraper",
+    "title": "Global Weather, Marine, Space Weather & Natural Disasters Intelligence",
+    "description": "Extract real-time meteorology, 16-day forecasts, air quality AQI, marine sea state, tectonic plates, space weather solar flares, and USGS live earthquakes.",
+    "version": "1.0.0",
+    "meta": {
+        "templateId": "python-empty"
+    },
+    "dockerfile": "./Dockerfile",
+    "input": "./input_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "output": "./output_schema.json"
+}
