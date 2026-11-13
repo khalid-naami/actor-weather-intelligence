@@ -7,7 +7,21 @@
             "title": "Target Locations / Cities",
             "type": "array",
             "description": "List of cities or locations to analyze (e.g. ['Casablanca', 'Tokyo', 'New York', 'Riyadh']).",
-            "prefill": ["Casablanca", "Paris", "Dubai", "Tokyo"],
+            "items": {
+                "type": "string"
+            },
+            "default": [
+                "Casablanca",
+                "Paris",
+                "Dubai",
+                "Tokyo"
+            ],
+            "prefill": [
+                "Casablanca",
+                "Paris",
+                "Dubai",
+                "Tokyo"
+            ],
             "editor": "json"
         },
         "forecastDays": {
@@ -46,8 +60,11 @@
             "title": "Apify API Token / Custom Key",
             "type": "string",
             "description": "Optional Apify API token or custom authentication key for MCP and programmatic triggers.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "isSecret": true
         }
     },
-    "required": ["locations"]
+    "required": [
+        "locations"
+    ]
 }
