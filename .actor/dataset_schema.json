@@ -1,43 +1,191 @@
 {
     "actorSpecification": 1,
     "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
             "type": {
-                "type": "string",
+                "type": ["string", "null"],
                 "title": "Record Type"
             },
             "location": {
-                "type": "string",
-                "title": "Location Name"
+                "type": ["string", "null"],
+                "title": "Location / City"
             },
             "coordinates": {
-                "type": "object",
-                "title": "Coordinates (lat, lon)"
+                "type": ["object", "null"],
+                "title": "Coordinates",
+                "additionalProperties": true
             },
             "current_weather": {
-                "type": "object",
-                "title": "Current Meteorology"
+                "type": ["object", "null"],
+                "title": "Current Atmospheric Telemetry",
+                "additionalProperties": true
             },
             "air_quality": {
-                "type": "object",
-                "title": "Air Quality Metrics"
+                "type": ["object", "null"],
+                "title": "Air Quality & Pollutants",
+                "additionalProperties": true
             },
             "marine_forecast": {
-                "type": "object",
-                "title": "Marine & Wave Forecast"
+                "type": ["object", "null"],
+                "title": "Oceanographic & Swell Data",
+                "additionalProperties": true
             },
             "solar_activity": {
-                "type": "object",
-                "title": "Space Weather Solar Activity"
+                "type": ["string", "null"],
+                "title": "Solar Flare Activity"
             },
             "geomagnetic_k_index": {
-                "type": "object",
-                "title": "Geomagnetic Planetary K-Index"
+                "type": ["number", "null"],
+                "title": "Planetary K-Index (Kp)"
             },
             "usgs_earthquakes": {
-                "type": "array",
-                "title": "USGS Earthquakes List"
+                "type": ["array", "null"],
+                "title": "Recent Seismic Events (USGS)",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "query": {
+                "type": ["string", "null"],
+                "title": "Search Query"
+            },
+            "resolvedName": {
+                "type": ["string", "null"],
+                "title": "Resolved City Name"
+            },
+            "country": {
+                "type": ["string", "null"],
+                "title": "Country"
+            },
+            "latitude": {
+                "type": ["number", "null"],
+                "title": "Latitude"
+            },
+            "longitude": {
+                "type": ["number", "null"],
+                "title": "Longitude"
+            },
+            "timezone": {
+                "type": ["string", "null"],
+                "title": "Timezone"
+            },
+            "tectonicPlate": {
+                "type": ["object", "null"],
+                "title": "Nearest Tectonic Plate Fault",
+                "additionalProperties": true
+            },
+            "currentWeather": {
+                "type": ["object", "null"],
+                "title": "Current Weather (CamelCase)",
+                "additionalProperties": true
+            },
+            "airQuality": {
+                "type": ["object", "null"],
+                "title": "Air Quality Summary (CamelCase)",
+                "additionalProperties": true
+            },
+            "marineWeather": {
+                "type": ["object", "null"],
+                "title": "Marine Weather Summary (CamelCase)",
+                "additionalProperties": true
+            },
+            "spaceWeather": {
+                "type": ["object", "null"],
+                "title": "NOAA SWPC Space Weather",
+                "additionalProperties": true
+            },
+            "dailyForecast": {
+                "type": ["array", "null"],
+                "title": "Daily Forecast",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "analyticsSummary": {
+                "type": ["object", "null"],
+                "title": "Climate & Renewable Energy Analytics",
+                "additionalProperties": true
+            },
+            "nearestNaturalHazards": {
+                "type": ["array", "null"],
+                "title": "Nearest Active Natural Hazards",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            },
+            "recentMajorEarthquakes": {
+                "type": ["array", "null"],
+                "title": "Recent Major Earthquakes",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "additionalProperties": true,
+        "required": []
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "type",
+                    "location",
+                    "coordinates",
+                    "current_weather",
+                    "air_quality",
+                    "marine_forecast",
+                    "solar_activity",
+                    "geomagnetic_k_index",
+                    "usgs_earthquakes"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "type": {
+                        "label": "Record Type",
+                        "format": "text"
+                    },
+                    "location": {
+                        "label": "Location / City",
+                        "format": "text"
+                    },
+                    "coordinates": {
+                        "label": "Coordinates",
+                        "format": "object"
+                    },
+                    "current_weather": {
+                        "label": "Current Atmospheric Telemetry",
+                        "format": "object"
+                    },
+                    "air_quality": {
+                        "label": "Air Quality & Pollutants",
+                        "format": "object"
+                    },
+                    "marine_forecast": {
+                        "label": "Oceanographic & Swell Data",
+                        "format": "object"
+                    },
+                    "solar_activity": {
+                        "label": "Solar Flare Activity",
+                        "format": "text"
+                    },
+                    "geomagnetic_k_index": {
+                        "label": "Planetary K-Index (Kp)",
+                        "format": "number"
+                    },
+                    "usgs_earthquakes": {
+                        "label": "Recent Seismic Events (USGS)",
+                        "format": "array"
+                    }
+                }
             }
         }
     }
